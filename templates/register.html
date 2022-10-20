@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgo="
+    />
+  </head>
+  <body>
+    <h2>Account Registration</h2>
+    <ul>
+      <li>Username must contain only letters or numbers</li>
+      <li>Username must be longer than 4 characters but shorter than 51</li>
+      <li>
+        Password must contain a uppercase letter, lowercase letter, number and
+        special character
+      </li>
+      <li>Password must be greater than 11 characters but less than 60</li>
+    </ul>
+    <form action="/registerauth" method="post">
+      <label for="userName">Username:</label><br />
+      <input type="text" id="userName" name="userName" value="John" /><br />
+      <label for="firstName">First Name:</label><br />
+      <input type="text" id="firstName" name="firstName" value="John" /><br />
+      <label for="lastName">Last Name:</label><br />
+      <input type="text" id="lastName" name="lastName" value="Doe" /><br />
+      <label for="password">Password:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        value="Doe"
+      /><br /><br />
+      <input type="submit" value="Register" />
+    </form>
+    <p>
+      If you click the "Submit" button, the form-data will be sent to a page
+      called "/action_page.php".
+    </p>
+  </body>
+</html>
