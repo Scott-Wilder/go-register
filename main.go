@@ -48,9 +48,7 @@ func main() {
 		fmt.Println("error verifying connection with db.Ping")
 		panic(err.Error())
 	}
-	
-	//addUser()
-	
+
 	fmt.Println("Successful Connection to Database!")
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/register", registerHandler)
@@ -160,8 +158,7 @@ func registerAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if err != sql.ErrNoRows {
 		fmt.Println("usernmae already exists, err:", err)
 		templates.ExecuteTemplate(w, "register.html", "username taken")
-		 return
-			
+		 return	
 	}
 	//create hash from password
 	var hash []byte
@@ -197,13 +194,4 @@ func registerAuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Fprint(w, "congrats, your account has been successfully created")
 	
-}
-
-func addUser()  {
-	result, err := db.Exec("INSERT INTO user (`username`, `firstname`, `lastname`, `Hash`) VALUES ('test_insert', 'testFName', 'testLName', 'testHash');")
-	if err != nil {
-		fmt.Errorf("addUser: %v", err)
-        return
-    }
-	fmt.Println(&result)
 }
